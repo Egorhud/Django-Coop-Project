@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Школа Logika{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="header fixed-header">
+        <nav class="nav">
+            <div class="nav-left">
+                <a href="{% url 'home' %}" class="logo">🎓 Logika</a>
+                <span class="site-title">Образовательная платформа</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li><a href="#forum">Форум</a></li>
+                <li><a href="#tasks">Задачи</a></li>
+                <li><a href="#calendar">Календарь</a></li>
+                <li><a href="#profile">Профиль</a></li>
+                {% if user.is_staff or user.is_superuser %}
+                    <li><a href="/admin/" class="admin-widget">Админка</a></li>
+                    <li><a href="/moderation/" class="moder-widget">Модерация</a></li>
+                {% endif %}
+            </ul>
+            <div class="nav-right">
+                <a href="#profile" class="profile-btn">👤 Профиль</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer fixed-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/Egorhud/Django-Coop-Project" target="_blank">GitHub проекта</a> |
+                <a href="mailto:info@logika-school.ua">info@logika-school.ua</a> |
+                <a href="mailto:egorpan08@gmail.com">egorpan08@gmail.com (тех. поддержка)</a> |
+                <a href="tel:+380953222186">+380953222186</a>
+            </div>
+            <div class="footer-desc">
+                &copy; 2025 Школа Logika. Django-Coop-Project — образовательная платформа для изучения логики и программирования.<br>
+                <span class="footer-fake">Контакты и ссылки приведены для стилизации.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
