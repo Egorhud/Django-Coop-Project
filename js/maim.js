@@ -38,4 +38,4 @@ document.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const rate = scrolled * -0.5;
     document.body.style.backgroundPosition = `center ${rate}px`;
-});
+    

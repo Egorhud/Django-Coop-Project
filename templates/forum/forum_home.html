@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Форум{% endblock %}
+{% block content %}
+<h1>Форум</h1>
+<a href="{% url 'topic_create' %}" class="btn btn-primary">Создать тему</a>
+{% for topic in topics %}
+<div class="forum-topic-card">
+    <div class="forum-topic-title"><a href="{% url 'topic_detail' topic.pk %}">{{ topic.title }}</a></div>
+    <div class="forum-topic-meta">
+        <span class="forum-topic-author">{{ topic.author.username }}</span>
+        <span class="forum-topic-date">{{ topic.created_at|date:'d.m.Y H:i' }}</span>
+    </div>
+</div>
+{% empty %}
+<div class="forum-topic-card forum-topic-empty">Тем пока нет.</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Пост{% endblock %}
+{% block content %}
+<h1>Пост</h1>
+<p>{{ post.content }}</p>
+{% if post.image %}<img src="{{ post.image.url }}" style="max-width:300px;" />{% endif %}
+{% if post.video %}<video src="{{ post.video.url }}" controls style="max-width:300px;"></video>{% endif %}
+{% if post.audio %}<audio src="{{ post.audio.url }}" controls></audio>{% endif %}
+<p>Автор: {{ post.author.username }} ({{ post.created_at|date:'d.m.Y H:i' }})</p>
+<h2>Комментарии</h2>
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment.author.username }}: {{ comment.content }} ({{ comment.created_at|date:'d.m.Y H:i' }})</li>
+    {% empty %}
+        <li>Комментариев пока нет.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'comment_create' post.pk %}">Добавить комментарий</a>
+{% endblock %}

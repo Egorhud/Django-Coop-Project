@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ topic.title }}{% endblock %}
+{% block content %}
+<h1>{{ topic.title }}</h1>
+<p>{{ topic.description }}</p>
+<a href="{% url 'post_create' topic.pk %}">Создать пост</a>
+<ul>
+    {% for post in posts %}
+        <li><a href="{% url 'post_detail' post.pk %}">{{ post.content|truncatechars:50 }}</a> — {{ post.author.username }} ({{ post.created_at|date:'d.m.Y H:i' }})</li>
+    {% empty %}
+        <li>Постов пока нет.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

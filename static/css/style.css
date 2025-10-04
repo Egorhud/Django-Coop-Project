@@ -1,3 +1,88 @@
+/* Карточки тем форума */
+.forum-topic-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin: 1.5rem 0 2rem 0;
+}
+.forum-topic-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(127,156,245,0.10);
+    padding: 1.1rem 1.5rem 1.2rem 1.5rem;
+    min-width: 220px;
+    max-width: 340px;
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #e3e6f5;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.forum-topic-card:hover {
+    box-shadow: 0 6px 24px rgba(127,156,245,0.18);
+    transform: translateY(-2px) scale(1.02);
+}
+.forum-topic-title {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.forum-topic-title a {
+    color: #3c3c78;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.forum-topic-title a:hover {
+    color: #7f9cf5;
+}
+.forum-topic-meta {
+    font-size: 0.98rem;
+    color: #888;
+    display: flex;
+    gap: 1.2rem;
+}
+.forum-topic-author {
+    color: #3c3c78;
+    font-weight: 500;
+}
+.forum-topic-empty {
+    color: #888;
+    text-align: center;
+    width: 100%;
+}
+/* Таблица форума */
+.forum-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0 2rem 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(127,156,245,0.08);
+    overflow: hidden;
+}
+.forum-table th, .forum-table td {
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid #e3e6f5;
+    text-align: left;
+}
+.forum-table th {
+    background: #f3f4fa;
+    color: #3c3c78;
+    font-weight: bold;
+}
+.forum-table tr:last-child td {
+    border-bottom: none;
+}
+.forum-table a {
+    color: #3c3c78;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.forum-table a:hover {
+    color: #7f9cf5;
+}
 .members-grid {
     display: table;
     width: 100%;
