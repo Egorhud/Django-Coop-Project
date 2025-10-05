@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from forum.views import forum_home
+from django.shortcuts import render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', forum_home, name='home'),
+    path('', lambda request: render(request, 'home.html'), name='home'),
     path('forum/', include('forum.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
